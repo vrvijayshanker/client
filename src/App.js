@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
+import Home from './pages/Home'
+import American from './pages/American'
+import Chinese from './pages/Chinese'
+import Indian from './pages/Indian'
+import Italian from './pages/Italian'
+import AddRecipe from './pages/AddRecipe';
+import EditRecipe from './pages/EditRecipe';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/american' element={<American/>} />
+        <Route path='/chinese' element={<Chinese/>} />
+        <Route path='/indian' element={<Indian/>} />
+        <Route path='/italian' element={<Italian/>} />
+        <Route path='/addrecipe' element={<AddRecipe/>} />
+        <Route path='/editrecipe/:id' element={<EditRecipe/>} />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }
